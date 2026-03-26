@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MessageSeal Support</title>
+  <meta name="description" content="Support page for MessageSeal.">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <main>
+    <nav class="nav" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="./">Support</a>
+    </nav>
+
+    <section class="hero">
+      <p class="eyebrow">MessageSeal</p>
+      <h1>Support</h1>
+      <p>MessageSeal is a local encryption app for text on iPhone and iPad. Start with the in-app Guided Tour and Help &amp; Security guide for the fastest overview of how key sharing, local encrypt, and local decrypt work.</p>
+    </section>
+
+    <section class="card">
+      <h2>What The App Does</h2>
+      <ul class="list-tight">
+        <li>Creates and stores local identities</li>
+        <li>Lets you share your public key with other people</li>
+        <li>Encrypts text into a shareable <code>MessageSeal1</code> bundle</li>
+        <li>Decrypts bundles locally when one of your local identities matches</li>
+        <li>Includes a Messages extension for encrypting before send, sharing a public-key bundle, and opening compatible tap-to-open bundles on device</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Important Limitations</h2>
+      <ul class="list-tight">
+        <li>The app does not run a chat network, mailbox, or relay service.</li>
+        <li>The app protects message contents, not transport metadata.</li>
+        <li>Private key deletion is irreversible.</li>
+        <li>Sender labels in bundles are informative metadata, not proof of identity.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Before You Report A Problem</h2>
+      <ul class="list-tight">
+        <li>Confirm you created at least one local identity in the Keys tab.</li>
+        <li>Confirm the recipient's public key was imported before encryption.</li>
+        <li>When decrypting raw text, paste the full <code>MessageSeal1</code> bundle, including begin and end markers.</li>
+        <li>If a Messages bubble did not open directly, check whether it fell back to raw bundle text because it was too large. In that case, copy the full bundle into MessageSeal or the Messages extension manually.</li>
+        <li>If you deleted the receiving identity, older messages for that identity may no longer be recoverable.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Support Scope</h2>
+      <p>This support page covers product setup, key management, bundle sharing, local decrypt, and Messages extension behavior for MessageSeal.</p>
+      <p>Support email: <a href="mailto:messageseal@totalaldo.com">messageseal@totalaldo.com</a></p>
+      <p>Use that address for product setup questions, troubleshooting, and App Store support requests related to MessageSeal.</p>
+    </section>
+
+    <section class="card">
+      <h2>Privacy Questions</h2>
+      <p>For privacy details, including local storage, retention, and deletion behavior, read the <a href="../privacy/">Privacy Policy</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
