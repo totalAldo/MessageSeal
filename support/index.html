@@ -18,17 +18,19 @@
     <section class="hero">
       <p class="eyebrow">MessageSeal</p>
       <h1>Support</h1>
-      <p>MessageSeal is a local encryption app for text on iPhone and iPad. Start with the in-app Guided Tour and Help &amp; Security guide for the fastest overview of how key sharing, local encrypt, and local decrypt work.</p>
+      <p>MessageSeal is a local text-protection app for iPhone and iPad. Start with the in-app Guided Tour and Help &amp; Security guide for the fastest overview of identity sharing, local encrypt, local sign, local decrypt, and local verification.</p>
     </section>
 
     <section class="card">
       <h2>What The App Does</h2>
       <ul class="list-tight">
         <li>Creates and stores local identities</li>
-        <li>Lets you share your public key with other people</li>
+        <li>Lets you share one public identity bundle with separate encryption and signature keys</li>
         <li>Encrypts text into a shareable <code>MessageSeal1</code> bundle</li>
+        <li>Signs readable text with a detached signature footer</li>
         <li>Decrypts bundles locally when one of your local identities matches</li>
-        <li>Includes a Messages extension for encrypting before send, sharing a public-key bundle, and opening compatible tap-to-open bundles on device</li>
+        <li>Verifies signed text locally when the included signing identity data is intact</li>
+        <li>Includes a Messages extension for encrypting before send, signing readable text, sharing an identity bundle, and opening compatible protected text on device</li>
       </ul>
     </section>
 
@@ -46,8 +48,9 @@
       <h2>Before You Report A Problem</h2>
       <ul class="list-tight">
         <li>Confirm you created at least one local identity in the Keys tab.</li>
-        <li>Confirm the recipient's public key was imported before encryption.</li>
+        <li>Confirm the recipient's public identity was imported before encryption, or save the signer before relying on signature matches.</li>
         <li>When decrypting raw text, paste the full <code>MessageSeal1</code> bundle, including begin and end markers.</li>
+        <li>When verifying a signed message, paste the full visible plaintext plus the detached signature footer.</li>
         <li>If a Messages bubble did not open directly, check whether it fell back to raw bundle text because it was too large. In that case, copy the full bundle into MessageSeal or the Messages extension manually.</li>
         <li>If you deleted the receiving identity, older messages for that identity may no longer be recoverable.</li>
       </ul>
@@ -55,7 +58,7 @@
 
     <section class="card">
       <h2>Support Scope</h2>
-      <p>This support page covers product setup, key management, bundle sharing, local decrypt, and Messages extension behavior for MessageSeal.</p>
+      <p>This support page covers product setup, identity management, encrypted bundle sharing, signed-message verification, and Messages extension behavior for MessageSeal.</p>
       <p>Support email: <a href="mailto:messageseal@totalaldo.com">messageseal@totalaldo.com</a></p>
       <p>Use that address for product setup questions, troubleshooting, and App Store support requests related to MessageSeal.</p>
     </section>
