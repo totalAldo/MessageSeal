@@ -18,20 +18,39 @@
     <section class="hero">
       <p class="eyebrow">MessageSeal</p>
       <h1>Support</h1>
-      <p>MessageSeal is a local text-protection app for iPhone and iPad. Start with the in-app Guided Tour and Help &amp; Security guide for the fastest overview of identity sharing, local encrypt, local sign, local decrypt, and local verification.</p>
+      <p>MessageSeal is a local text-protection app for iPhone and iPad. It pins one Apple-native crypto profile at a time instead of negotiating multiple suites inside shared text. The current profile uses hybrid post-quantum public-key cryptography for recipient encryption and signatures while keeping message protection and verification fully on device. Start with the in-app Guided Tour and Help &amp; Security guide for the fastest overview of identity sharing, local encrypt, local sign, local decrypt, and local verification.</p>
     </section>
 
     <section class="card">
       <h2>What The App Does</h2>
       <ul class="list-tight">
         <li>Creates and stores local identities</li>
-        <li>Lets you share one public identity bundle with separate encryption and signature keys</li>
+        <li>Lets you share one signed public identity bundle with separate encryption and signature keys</li>
         <li>Encrypts text into a shareable <code>MessageSeal1</code> bundle</li>
         <li>Signs readable text with a detached signature footer</li>
         <li>Decrypts bundles locally when one of your local identities matches</li>
         <li>Verifies signed text locally when the included signing identity data is intact</li>
-        <li>Includes a Messages extension for encrypting before send, signing readable text, sharing an identity bundle, and opening compatible protected text on device</li>
+        <li>Includes a Messages extension for encrypting before send, signing readable text, sharing a signed identity bundle, and opening compatible protected text on device</li>
       </ul>
+    </section>
+
+    <section class="card">
+      <h2>Why Post-Quantum Matters</h2>
+      <p>Traditional public-key systems are expected to become weaker if future large-scale quantum computers become practical. MessageSeal uses Apple-native hybrid post-quantum public-key cryptography so its shareable identities, recipient wrapping, and signatures are not tied only to older public-key designs.</p>
+      <p>MessageSeal pins one crypto profile at a time to avoid downgrade-prone negotiation. The current profile uses XWing HPKE recipient wrapping, hybrid ML-DSA87 + P384 signatures, and AES-256-GCM for the message body. That design is meant to reduce long-term exposure for sensitive text that may need protection well into the future while keeping a classical hedge during the transition.</p>
+    </section>
+
+    <section class="card">
+      <h2>How The Stack Works</h2>
+      <ul class="list-tight">
+        <li>Each local identity has two public keys under one label: one XWing encryption key for recipient wrapping and one hybrid ML-DSA87 + P384 signing key for signatures.</li>
+        <li>Public identity sharing uses a visible <code>MessageSeal1</code> bundle with explicit key-format metadata, a short identity fingerprint, a detached identity signature, and no private key material.</li>
+        <li>The generic recipient-import flow accepts signed identity bundles or raw encryption keys. Encrypted message bundles are for open and decrypt flows, and reply-ready sender identities can only be saved directly when the decrypted or verified message proves them.</li>
+        <li>Encrypted text uses one fresh 32-byte AES-256 content key per message. That content key is wrapped separately to each selected recipient with XWing HPKE, then the plaintext is encrypted with AES-256-GCM.</li>
+        <li>Readable signed text stays visible and adds a detached footer that includes the body digest, the signing public key, the included reply encryption key, and the hybrid signature.</li>
+        <li>Private keys stay on device in Apple's Keychain. MessageSeal does not run a server, relay, or cloud key store.</li>
+      </ul>
+      <p>For the full wire-format explanation, including the pinned crypto-profile model, current-only bundle versions, signed footer structure, fingerprints, and local verification behavior, open Protocol Specification inside the app from Settings. If you want the conceptual version first, open the in-app How This Works screen for the replayable encrypt-and-open walkthrough.</p>
     </section>
 
     <section class="card">
@@ -48,7 +67,7 @@
       <h2>Before You Report A Problem</h2>
       <ul class="list-tight">
         <li>Confirm you created at least one local identity in the Keys tab.</li>
-        <li>Confirm the recipient's public identity was imported before encryption, or save the signer before relying on signature matches.</li>
+        <li>Confirm the recipient's signed public identity bundle or raw encryption key was imported before encryption, or save the signer before relying on signature matches.</li>
         <li>When decrypting raw text, paste the full <code>MessageSeal1</code> bundle, including begin and end markers.</li>
         <li>When verifying a signed message, paste the full visible plaintext plus the detached signature footer.</li>
         <li>If a Messages bubble did not open directly, check whether it fell back to raw bundle text because it was too large. In that case, copy the full bundle into MessageSeal or the Messages extension manually.</li>
@@ -58,7 +77,7 @@
 
     <section class="card">
       <h2>Support Scope</h2>
-      <p>This support page covers product setup, identity management, encrypted bundle sharing, signed-message verification, and Messages extension behavior for MessageSeal.</p>
+      <p>This support page covers product setup, identity management, encrypted bundle sharing, signed-message verification, post-quantum cryptography positioning, and Messages extension behavior for MessageSeal.</p>
       <p>Support email: <a href="mailto:messageseal@totalaldo.com">messageseal@totalaldo.com</a></p>
       <p>Use that address for product setup questions, troubleshooting, and App Store support requests related to MessageSeal.</p>
     </section>
