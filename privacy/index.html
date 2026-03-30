@@ -18,7 +18,7 @@
     <section class="hero">
       <p class="eyebrow">MessageSeal</p>
       <h1>Privacy Policy</h1>
-      <p class="muted">Updated March 27, 2026</p>
+      <p class="muted">Updated March 28, 2026</p>
       <p>MessageSeal is designed so encryption, signing, decryption, and verification happen on your device. The app does not provide accounts, a relay server, analytics, advertising, or cloud sync.</p>
     </section>
 
@@ -34,6 +34,7 @@
         <li>Private key material is stored in the device Keychain as device-only items used by MessageSeal and its Messages extension.</li>
         <li>Identity labels, recipient labels, recipient public identities, and app preferences are stored locally for app functionality.</li>
         <li>Clipboard access only occurs when you explicitly tap copy or paste actions.</li>
+        <li>Nearby recipients you explicitly save remain on your device so you can reuse them later without another nearby session.</li>
       </ul>
     </section>
 
@@ -41,6 +42,12 @@
       <h2>Sharing Through Other Apps</h2>
       <p>When you share an encrypted bundle or signed message through Messages, Mail, Notes, or another app, that app and its service provider handle transport. Their privacy practices are separate from MessageSeal.</p>
       <p>MessageSeal protects message contents before they leave the app. It does not hide transport metadata such as who you contacted, when you contacted them, or which service carried the shared text.</p>
+    </section>
+
+    <section class="card">
+      <h2>Nearby Exchange</h2>
+      <p>If you use Nearby Exchange, MessageSeal uses Apple's local-network and nearby-device frameworks only while the nearby screen stays open so the two devices can compare a safety code and exchange public identities directly.</p>
+      <p>Nearby Exchange does not add a cloud inbox, background listener, or conversation history. Closing the screen, backgrounding the app, or locking the device ends the nearby session.</p>
     </section>
 
     <section class="card">
@@ -54,6 +61,7 @@
       <p>MessageSeal does not keep a developer-hosted account, profile, or message archive, so there is no developer-side copy of your identities, recipients, or plaintext to delete on request.</p>
       <p>Data stays on your device until you delete identities or recipients in the app, clear local app data, or remove the app from the device.</p>
       <p>If you shared a bundle through another app or service, copies handled by that service follow that service's own retention and deletion practices.</p>
+      <p>If you used Nearby Exchange, the session itself is temporary. Only the recipients or messages you explicitly save locally remain on your device afterward.</p>
     </section>
 
     <section class="card">
